@@ -20,16 +20,23 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    // port: 9000,
+    stats: "errors-only",
+    open: true
+  },
   plugins: [
     new ExtractTextPlugin({
-      filename: "app.scss",
+      filename: "app.css",
       disable: false
     }),
     new HtmlWebpackPlugin({
       title: 'Red Baron',
-      minify: {
-        collapseWhitespace: true
-      },
+      // minify: {
+      //   collapseWhitespace: true
+      // },
       hash: true,
       template: './src/index.html', // Load a custom template (ejs by default see the FAQ for details)
     })
