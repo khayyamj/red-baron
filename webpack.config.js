@@ -23,6 +23,14 @@ module.exports = {
       {
         test: /\.scss$/,
         use: cssConfig // changes based on production or development
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: 'file-loader?images/name=[name].[ext]&outputPath=images/'
+      },
+      { test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
       }
     ]
   },
